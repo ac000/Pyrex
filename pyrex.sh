@@ -3,7 +3,7 @@
 
 function usage
 {
-	echo "Usage: dvdrip.sh -t <title no> -a <audio id> -c <channels> 
+	echo "Usage: pyrex.sh -t <title no> -a <audio id> -c <channels> 
 			-r <aspect ratio> -o <title name>"
 	echo
 	echo "Aspect ratio is in the format 16:9 or 4:3"
