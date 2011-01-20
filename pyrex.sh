@@ -49,7 +49,6 @@ if [ ! $channels ]; then
 	usage
 fi
 
-
 if [ ! $aspect ]; then
 	echo "Error: Missing required option -r [aspect ratio]"
 	usage
