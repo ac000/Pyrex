@@ -4,8 +4,7 @@
 function usage
 {
 	echo "Usage: pyrex.sh -t <title no> -a <audio id> -c <channels> 
-		-r <aspect ratio> [-P profile] [-T title]
-		-o <title name>"
+		-r <aspect ratio> [-P profile] -o <title name>"
 	echo
 	echo -e "Aspect ratio is in the format 16:9 or 4:3\n"
 	echo "Profile can be one of; mpeg4, theora+ac3 or theora+vorbis"
@@ -19,7 +18,7 @@ if [ "$#" -eq 0 ]; then
 	exit
 fi
 
-while getopts "t:a:c:r:P:T:o:" options; do
+while getopts "t:a:c:r:P:o:" options; do
 	case $options in
 		t) title=$OPTARG
 			;;
@@ -60,10 +59,6 @@ fi
 # Set the default profile
 if [[ ! $profile ]]; then
         profile="theora+ac3"
-fi
-
-if [[ "$title2" ]]; then
-	title2="--title \"$title2\""
 fi
 
 if [[ ! $name ]]; then
