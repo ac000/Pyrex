@@ -58,7 +58,11 @@ fi
 
 # Set the default profile
 if [[ ! $profile ]]; then
-        profile="theora+ac3"
+	profile="theora+ac3"
+elif [[ $profile != "mpeg4" ]] && [[ $profile != "theora+ac3" ]] &&
+					[[ $profile != "theora+vorbis" ]]; then
+	echo "Error: Unknown profile '$profile'"
+	usage
 fi
 
 if [[ ! $name ]]; then
