@@ -1,0 +1,47 @@
+What
+====
+
+Pyrex is a simple shell script to drive DVD ripping. It is just a wrapper
+around; mplayer, mencoder, ffmpeg; ffmpeg2theora, oggenc and mkvmerge
+
+
+Use
+===
+
+$ ./pyrex.sh will display the following simple help message:
+
+Usage: pyrex.sh -t <title no> -a <audio id> -c <channels> 
+		-r <aspect ratio> [-P profile] -o <output name>
+
+Aspect ratio is in the format 16:9 or 4:3
+
+Profile can be one of; mpeg4, theora+ac3 or theora+vorbis
+It defaults to; theora+ac3
+
+
+title no	- The title number on the DVD you want to rip.
+audio id	- The audio id of the title you want to rip, can be got from
+		  mplayer. Often 128 but not always.
+channels	- The number of channels in the above audio track. Generally
+		  either, 6 for 5.1 audio or 2 for stereo.
+aspect ratio	- 16:9 for widescreen or 4:3 for square.
+profile		- Set the output profile. Currently three options.
+
+	mpeg4		- MPEG4 video + AC3 audio in an AVI container
+	theora+ac3	- Theora video + 5.1 AC3 in a Matroska conatiner
+	theora+vorbis	- Theora video + 2.1 vorbis in an Ogg container
+
+		  If you don't specify a profile, theora+ac3 will be used.
+output name	- The name of the file you wish to generate. Don't use spaces
+		  and don't specify a file extension, this will be added
+		  automatically.
+
+An example usage would look like:
+
+$ pyrex.sh -t 4 -a 128 -c 2 -r 4:3 -P theora+vorbis -o 03-Diefenbakers_Day_Off
+
+
+License
+=======
+
+GPLv2 See COPYING
