@@ -1,5 +1,9 @@
 #!/bin/sh
 #
+# Pyrex
+#
+# Licensed under the GNU GPLv2
+# See COPYING
 
 function usage
 {
