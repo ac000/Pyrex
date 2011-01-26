@@ -4,7 +4,7 @@
 function usage
 {
 	echo "Usage: pyrex.sh -t <title no> -a <audio id> -c <channels> 
-		-r <aspect ratio> [-P profile] -o <title name>"
+		-r <aspect ratio> [-P profile] -o <output name>"
 	echo
 	echo -e "Aspect ratio is in the format 16:9 or 4:3\n"
 	echo "Profile can be one of; mpeg4, theora+ac3 or theora+vorbis"
