@@ -11,7 +11,7 @@ function usage
 		-r <aspect ratio> [-P profile] -o <output name>"
 	echo
 	echo -e "Aspect ratio is in the format 16:9 or 4:3\n"
-	echo "Profile can be one of; mpeg4, theora+ac3 or theora+vorbis"
+	echo "Profile can be one of; mpeg4, theora+ac3, theora+vorbis or webm"
 	echo "It defaults to; theora+ac3"
 	
 	exit
@@ -64,7 +64,8 @@ fi
 if [[ ! $profile ]]; then
 	profile="theora+ac3"
 elif [[ $profile != "mpeg4" ]] && [[ $profile != "theora+ac3" ]] &&
-					[[ $profile != "theora+vorbis" ]]; then
+					[[ $profile != "theora+vorbis" ]] &&
+					[[ $profile != "webm" ]]; then
 	echo "Error: Unknown profile '$profile'"
 	usage
 fi
@@ -97,6 +98,9 @@ ogv_enc_video_cmd="nice ffmpeg2theora -o $name.ogv --no-skeleton -v 7 -a 3 $name
 # Encode video to Ogg Theora
 theora_enc_cmd="nice ffmpeg2theora -o $name.ogv --no-skeleton -v 7 $name.vob"
 
+# Encode video to WebM
+webm_enc_cmd="nice ffmpeg -i $name.vob -deinterlace -b 1000k -ab 112k $name.webm"
+
 # Mux the video and audio from AVI into a Matroska container
 avi_to_mkv_cmd="nice mkvmerge -o $name.mkv $name.avi"
 
@@ -110,6 +114,7 @@ ogv_to_mkv_cmd="nice mkvmerge -o $name.mkv -A $name.ogv $name.ac3"
 # mpeg4 	- mpeg4 + AC3 in an AVI container
 # theora+ac3	- Theora + 5.1 AC3 in a Matroska container (default)
 # theora+vorbis	- Theora + 2.1 Vorbis in an Ogg container
+# webm		- WebM
 #
 
 echo "Starting DVD rip using the '$profile' profile."
@@ -124,6 +129,8 @@ elif [[ $profile = "theora+ac3" ]]; then
 	$ogv_to_mkv_cmd
 elif [[ $profile = "theora+vorbis" ]]; then
 	$ogv_enc_video_cmd
+elif [[ $profile = "webm" ]]; then
+	$webm_enc_cmd
 fi
 
 echo "DVD rip complete."
