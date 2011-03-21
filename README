@@ -15,7 +15,7 @@ Usage: pyrex.sh -t <title no> -a <audio id> -c <channels>
 
 Aspect ratio is in the format 16:9 or 4:3
 
-Profile can be one of; mpeg4, theora+ac3 or theora+vorbis
+Profile can be one of; mpeg4, theora+ac3, theora+vorbis or webm
 It defaults to; theora+ac3
 
 
@@ -25,11 +25,12 @@ audio id	- The audio id of the title you want to rip, can be got from
 channels	- The number of channels in the above audio track. Generally
 		  either, 6 for 5.1 audio or 2 for stereo.
 aspect ratio	- 16:9 for widescreen or 4:3 for square.
-profile		- Set the output profile. Currently three options.
+profile		- Set the output profile. The current options are:
 
 	mpeg4		- MPEG4 video + AC3 audio in an AVI container
 	theora+ac3	- Theora video + 5.1 AC3 in a Matroska conatiner
 	theora+vorbis	- Theora video + 2.1 vorbis in an Ogg container
+	webm		- WebM
 
 		  If you don't specify a profile, theora+ac3 will be used.
 output name	- The name of the file you wish to generate. Don't use spaces
