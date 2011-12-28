@@ -90,7 +90,7 @@ extract_ac3_cmd="nice mplayer $name.vob -aid $aid -channels $channels -dumpaudio
 ac3_to_vorbis_cmd="nice ffmpeg -i $name.ac3 -f s16le -acodec pcm_s16le - | oggenc -o $name.oga -q 5 -r -B 16 -C 6 -R 48000 -Q -"
 
 # Encode video (MPEG4/AC3 - AVI)
-mpeg4_enc_cmd="nice mencoder $name.vob -aid $aid -vf scale,harddup -zoom -aspect $aspect -xy 720 -o $name.avi -channels $channels -oac copy -ovc lavc -lavcopts vcodec=mpeg4"
+mpeg4_enc_cmd="nice mencoder $name.vob -aid $aid -vf scale,harddup -zoom -aspect $aspect -xy 720 -o $name.avi -channels $channels -oac copy -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=1024"
 
 # Encode video (Theora/Vorbis - OGV)
 ogv_enc_video_cmd="nice ffmpeg2theora -o $name.ogv --no-skeleton -v 7 -a 3 $name.vob"
