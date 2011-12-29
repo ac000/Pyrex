@@ -42,6 +42,20 @@ An example usage would look like:
 $ pyrex.sh -t 4 -a 128 -c 2 -r 4:3 -P theora+vorbis -o 03-Diefenbakers_Day_Off
 
 
+Problems
+========
+
+Sometimes ffmpeg2theora gets the duration wrong for the VOB. You can fix this
+by running it through ffmpeg first. e.g
+
+    $ ffmpeg -i DVD.vob -map 0.0 -map 0.1 -vcodec copy -acodec copy DVD.1.vob
+
+Adjust the audio mapping (0.1 above) as required.
+
+That seems to get rid of something at the start of file which contains some
+duff information/data.
+
+
 License
 =======
 
