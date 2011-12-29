@@ -2,7 +2,7 @@ What
 ====
 
 Pyrex is a simple shell script to drive DVD ripping. It is just a wrapper
-around; mplayer, mencoder, ffmpeg; ffmpeg2theora, oggenc and mkvmerge
+around; mplayer, mencoder, ffmpeg, ffmpeg2theora, oggenc and mkvmerge.
 
 
 Use
